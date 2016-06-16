@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="Pais" representedClassName="Pais" syncable="YES">
+        <attribute name="bandeira" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="callingCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="culture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="idPais" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iso" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitado" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Perfil" representedClassName="Perfil" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foto" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="idFB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pais" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Perfil" positionX="-54" positionY="72" width="128" height="105"/>
+    </elements>
+</model>
