@@ -2,8 +2,8 @@
 //  MundoViewController.h
 //  MyVisitWold
 //
-//  Created by Etica on 14/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 14/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

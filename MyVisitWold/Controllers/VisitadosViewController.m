@@ -2,8 +2,8 @@
 //  VisitadosViewController.m
 //  MyVisitWold
 //
-//  Created by Etica on 14/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 14/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import "VisitadosViewController.h"
@@ -12,20 +12,20 @@
 @synthesize table;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // seta imagem de fundo
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
     
     pais = [[NSArray alloc]init];
     paisArray = [[NSMutableArray alloc]init];
     pais =  [[ModeloPais modeloCompartilhado] itens];
     
+    //Verifica paises visitados
     for(Pais *elemento in pais){
         if([elemento.visitado isEqualToString:@"true"]){
             [paisArray addObject:elemento];
         }
     }
     self.table.allowsMultipleSelectionDuringEditing = NO;
-    
     [table reloadData];
 }
 
@@ -39,7 +39,10 @@
 {
     return [paisArray count];
 }
-
+/**
+ * UITableView recebe imagem da bandeira do país, shortname
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier;
@@ -61,38 +64,33 @@
     UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:10];
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     UIButton *button = (UIButton *) [cell viewWithTag:35];
-    
     [button addTarget:self action:@selector(excluir:)   forControlEvents:UIControlEventTouchDown];
     
+    //Marca ou desmarca país
     if ([paisCell.selected isEqualToString:@"true"]) {
         UIImage *btnImage = [UIImage imageNamed:@"check_box.png"];
         [button setImage:btnImage forState:UIControlStateNormal];
     }else{
         UIImage *btnImage = [UIImage imageNamed:@"ico_cxcheck.png"];
         [button setImage:btnImage forState:UIControlStateNormal];
-        
     }
-    
     label.text = paisCell.shortname;
     
     UIImage *image = [UIImage imageWithData: paisCell.bandeira];
     recipeImageView.image =image;
     
-    
-    
-    
     return cell;
-    
 }
+/**
+ * Métado que recebe ação, marcando ou desmarcando país para excluir da lista
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 -(void)excluir:(UIButton*)btn
-
 {
-    
     CGPoint buttonPosition = [btn convertPoint:CGPointZero toView:table];
     NSIndexPath *indexPath = [table indexPathForRowAtPoint:buttonPosition];
     Pais *paisModelo = nil;
     paisModelo = [paisArray objectAtIndex:indexPath.row];
-    
     
     for(Pais *elementoPais in paisArray){
         if([elementoPais.idPais isEqualToString:paisModelo.idPais]){
@@ -100,12 +98,10 @@
                 
                 [elementoPais setSelected:@"true"];
             }
-            
             else if ([ elementoPais.selected isEqualToString:@"true"]) {
                 
                 [elementoPais setSelected:@"false"];
             }
-            
         }
         
     }
@@ -114,11 +110,12 @@
     [table reloadData];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
     return YES;
 }
-
-// Override to support editing the table view.
+/**
+ * Esse métado que recebe gesto e exclui item da tabela. Salva as mudanças e recarrega tabela
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[self table] setEditing:![[self table] isEditing]animated:YES];
@@ -133,8 +130,6 @@
                 break;
             }
         }
-        
-        
         pais = [[NSArray alloc]init];
         paisArray = [[NSMutableArray alloc]init];
         pais =  [[ModeloPais modeloCompartilhado] itens];
@@ -144,11 +139,13 @@
                 [paisArray addObject:elemento];
             }
         }
-        
         [table reloadData];
-        
     }
 }
+/**
+ * Métado que recebe toque da célula, e direciona para a tela de detalhes e passa o país selecionado
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Pais *paisTab = [paisArray objectAtIndex:indexPath.row];
@@ -160,9 +157,11 @@
     
     [self presentViewController:detalhes animated:YES completion:nil];
     
-    
-    
 }
+/**
+ * Exibe alerta de confirmação
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (IBAction)btExcluir:(id)sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção!"
@@ -171,9 +170,11 @@
                                           cancelButtonTitle:@"Não"
                                           otherButtonTitles:@"Sim", nil];
     [alert show];
-    
-    
 }
+/**
+ * Esse métado recebe ação do botão sim do UIAlert. Exclui itens selecionados e recarrega tabela
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != [alertView cancelButtonIndex]) {
         pais =  [[ModeloPais modeloCompartilhado] itens];
@@ -185,7 +186,6 @@
                 [elementoPais setSelected:@"false"];
             }
         }
-        
         pais = [[NSArray alloc]init];
         paisArray = [[NSMutableArray alloc]init];
         pais =  [[ModeloPais modeloCompartilhado] itens];
@@ -195,9 +195,7 @@
                 [paisArray addObject:elemento];
             }
         }
-        
         [table reloadData];
-        
     }
 }
 @end

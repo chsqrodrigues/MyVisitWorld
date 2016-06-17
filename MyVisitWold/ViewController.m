@@ -2,8 +2,8 @@
 //  ViewController.m
 //  MyVisitWold
 //
-//  Created by Etica on 14/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 14/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -27,10 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 /*
  Esté metado recebe as informações do Facebook e salva no banco Perfil
- O Facebook retorna as seguinter informações: Nome, Email, Imagem ;
+ O Facebook retorna as seguinter informações: Nome, Email, Imagem, id ;
+ * @author Carlos (ch.sqrodrigues@gmail.com)
  */
 -(void)cadastroFacebook{
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
@@ -72,6 +72,7 @@
 }
 /**
  * Seta permissões do Facebook
+ * @author Carlos (ch.sqrodrigues@gmail.com)
  */
 - (IBAction)btFacebook:(id)sender {
     //Inicializa progress bar

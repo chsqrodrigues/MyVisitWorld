@@ -2,8 +2,8 @@
 //  MundoViewController.m
 //  MyVisitWold
 //
-//  Created by Etica on 14/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 14/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import "MundoViewController.h"
@@ -11,13 +11,14 @@
 @implementation MundoViewController
 @synthesize lbNome, collection;
 - (void)viewDidLoad {
-    [self.view endEditing:YES];
     [super viewDidLoad];
+    [self.view endEditing:YES];
+    
+    //seta imagem de fundo na tela
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
-    // Do any additional setup after loading the view, typically from a nib.
     paisArray = [[NSMutableArray alloc]init];
     paisArray =  [[ModeloPais modeloCompartilhado] itens];
-    
+    //Valida necessidade de requisição
     if([paisArray count]==0){
         [self requestListaPaises];
         
@@ -42,7 +43,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/**
+ * Realiza requisição e salva informações no banco de dados
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 -(void)requestListaPaises{
     [Funcionalidades startProgressBar:self.view];
     
@@ -56,13 +60,9 @@
     
     [[session dataTaskWithRequest:requestLogin completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        
-        
         NSDictionary *greeting = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
-        
         for(NSDictionary *elemento in greeting){
-            
             
             Pais *paisAtual = [[ModeloPais  modeloCompartilhado] criarItem];
             [paisAtual setIdPais: [NSString stringWithFormat:@"%@",[elemento valueForKey:@"id"]]];
@@ -73,14 +73,14 @@
             [paisAtual setStatus:[NSString stringWithFormat:@"%@",[elemento valueForKey:@"status"]]];
             [paisAtual setCulture:[elemento valueForKey:@"culture"]];
             [paisAtual setSelected:@"false"];
+            
+            //Seta imagem da bandeira do país
             NSString *urlString = [NSString stringWithFormat:@"http://mypushapi-dev.us-east-1.elasticbeanstalk.com/world/countries/%@/flag", paisAtual.idPais];
             NSURL *imageURL = [NSURL URLWithString:urlString];
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
             [paisAtual setBandeira:imageData];
             [[ModeloPais modeloCompartilhado] salvarMudancas];
             
-            
-            //  UIImage *image = [UIImage imageWithData:imageData];
             
         }
         paisArray = [[NSMutableArray alloc]init];
@@ -97,23 +97,22 @@
     
     return paisArray.count;
 }
-
+/**
+ * Coleção recebe imagem da bandeira do país, shortname e se tiver sido visitado recebe check
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *identifier = @"myCell";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
     
     UILabel *label = (UILabel *)[cell viewWithTag:100];
     UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:50];
     UIImageView *check = (UIImageView *)[cell viewWithTag:75];
     
     Pais * paisCell=nil;
-    
     paisCell =[paisArray objectAtIndex:indexPath.row];
-    
     label.text = paisCell.shortname;
-    
     UIImage *image = [UIImage imageWithData: paisCell.bandeira];
     recipeImageView.image =image;
     
@@ -123,12 +122,13 @@
     }else{
         check.hidden = YES;
     }
-    
     return cell;
 }
+/**
+ * Métado que recebe toque da célula, e direciona para a tela de detalhes e passa o país selecionado
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
     Pais *paisTab = [paisArray objectAtIndex:indexPath.row];
     
     DetalhesViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalhesViewController"];
@@ -137,14 +137,15 @@
     detalhes.arrayPais = paisArray;
     
     [self presentViewController:detalhes animated:YES completion:nil];
-    
-    
 }
+/**
+ * Esta ação direciona o usúario para a tela inicial do APP
+ * @author Carlos (ch.sqrodrigues@gmail.com)
+ */
 - (IBAction)btSair:(id)sender {
     ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     
     [self presentViewController:login animated:YES completion:nil];
-    
     
 }
 @end

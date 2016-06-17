@@ -685,7 +685,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyVisitWoldTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.etica.MyVisitWoldTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.carlos.MyVisitWoldTests;
 				PRODUCT_NAME = MyVisitWorld;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyVisitWorld.app/MyVisitWorld";
 			};
@@ -697,7 +697,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MyVisitWoldTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.etica.MyVisitWoldTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.carlos.MyVisitWoldTests;
 				PRODUCT_NAME = MyVisitWorld;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyVisitWorld.app/MyVisitWorld";
 			};
@@ -708,7 +708,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = MyVisitWoldUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.etica.MyVisitWoldUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.carlos.MyVisitWoldUITests;
 				PRODUCT_NAME = MyVisitWorld;
 				TEST_TARGET_NAME = MyVisitWold;
 			};
@@ -719,7 +719,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = MyVisitWoldUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.etica.MyVisitWoldUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.carlos.MyVisitWoldUITests;
 				PRODUCT_NAME = MyVisitWorld;
 				TEST_TARGET_NAME = MyVisitWold;
 			};

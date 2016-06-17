@@ -2,8 +2,8 @@
 //  Funcionalidades.m
 //  MyVisitWold
 //
-//  Created by Etica on 15/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 15/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import "Funcionalidades.h"

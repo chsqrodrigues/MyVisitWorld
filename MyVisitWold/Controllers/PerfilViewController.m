@@ -2,8 +2,8 @@
 //  PerfilViewController.m
 //  MyVisitWorld
 //
-//  Created by Etica on 15/06/16.
-//  Copyright © 2016 Etica. All rights reserved.
+//  Created by Carlos on 15/06/16.
+//  Copyright © 2016 Carlos. All rights reserved.
 //
 
 #import "PerfilViewController.h"
@@ -18,11 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   //seta imagem de fundo na tela
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
-    NSArray *arrayPerfil = [[NSArray alloc]init];
     
+    NSArray *arrayPerfil = [[NSArray alloc]init];
     arrayPerfil =  [[ModeloPerfil modeloCompartilhado] itens];
+    //Seta infomações(nome e email) do Facebook
     for(Perfil *elemento in arrayPerfil){
         lbNome.text = elemento.nome;
         lbEmail.text = elemento.email;
