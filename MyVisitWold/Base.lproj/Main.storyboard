@@ -47,14 +47,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tlg-tX-qO4">
-                                <rect key="frame" x="133" y="357" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="gBT-72-Gjy" kind="modal" id="l2Y-dv-coJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="g3U-dE-YSm">
                                 <rect key="frame" x="28" y="246" width="264" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -372,30 +364,35 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="cKK-mX-22B">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                        <rect key="frame" x="0.0" y="39" width="320" height="123"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <date key="date" timeIntervalSinceReferenceDate="410987481.23420298">
                                             <!--2014-01-09 19:11:21 +0000-->
                                         </date>
                                         <locale key="locale" localeIdentifier="pt_BR"/>
                                     </datePicker>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="E5c-H8-Isb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <items>
-                                            <barButtonItem title="Cancelar" id="7LY-eX-UEy">
-                                                <connections>
-                                                    <action selector="btCancelar:" destination="aTR-v9-fa5" id="s35-Oo-KOW"/>
-                                                </connections>
-                                            </barButtonItem>
-                                            <barButtonItem width="181" style="plain" systemItem="fixedSpace" id="9Wr-to-eS2"/>
-                                            <barButtonItem title="Definir" id="120-HC-diG">
-                                                <connections>
-                                                    <action selector="btDefinirData:" destination="aTR-v9-fa5" id="3rd-jA-qTK"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </items>
-                                    </toolbar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BG6-hr-QUJ">
+                                        <rect key="frame" x="8" y="0.0" width="88" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Cancelar">
+                                            <color key="titleColor" red="0.023529411760000001" green="0.25882352939999997" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btCancelar:" destination="aTR-v9-fa5" eventType="touchUpInside" id="irf-l6-qxg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WHH-ar-3TH">
+                                        <rect key="frame" x="246" y="0.0" width="66" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <state key="normal" title="Definir">
+                                            <color key="titleColor" red="0.023529411760000001" green="0.25882352939999997" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btDefinirData:" destination="aTR-v9-fa5" eventType="touchUpInside" id="BlD-zj-hEu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -554,7 +551,4 @@
         <image name="visit.png" width="45" height="45"/>
         <image name="voltar.png" width="120" height="120"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="jV3-dh-MiX"/>
-    </inferredMetricsTieBreakers>
 </document>
