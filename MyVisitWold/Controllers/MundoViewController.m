@@ -23,6 +23,7 @@
         [self requestListaPaises];
         
     }
+   
 }
 - (void)viewWillAppear:(BOOL)animated {
     
@@ -129,14 +130,30 @@
  * @author Carlos (ch.sqrodrigues@gmail.com)
  */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    Pais *paisTab = [paisArray objectAtIndex:indexPath.row];
     
-    DetalhesViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalhesViewController"];
+  
     
-    detalhes.pais = paisTab;
-    detalhes.arrayPais = paisArray;
     
-    [self presentViewController:detalhes animated:YES completion:nil];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //NSIndexPath *indexPath = [self.collection indexPathsForSelectedItems];
+    
+    
+    
+    
+    
+    NSArray *arrayOfIndexPaths = [self.collection indexPathsForSelectedItems];
+    NSIndexPath *indexPathImInterestedIn = [arrayOfIndexPaths firstObject];
+    Pais *paisTab = [paisArray objectAtIndex:indexPathImInterestedIn.item];
+
+   
+       
+        DetalhesViewController *destViewController = segue.destinationViewController;
+        destViewController.pais = paisTab;
+        destViewController.arrayPais = paisArray;
+    
 }
 /**
  * Esta ação direciona o usúario para a tela inicial do APP

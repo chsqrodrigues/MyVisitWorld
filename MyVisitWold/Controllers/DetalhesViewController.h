@@ -25,8 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbLongname;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBandeira;
 @property (weak, nonatomic) IBOutlet UILabel *lbCodTel;
-@property (weak, nonatomic) IBOutlet UIButton *btCheck;
-- (IBAction)btCheck:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *txtData;
 - (IBAction)btConfirmar:(id)sender;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -35,6 +35,9 @@
 - (IBAction)btCancelar:(id)sender;
 
 - (IBAction)btDefinirData:(id)sender;
+@property (weak, nonatomic) IBOutlet UINavigationBar *refNavigationController;
 
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchOnOFF;
 
 @end

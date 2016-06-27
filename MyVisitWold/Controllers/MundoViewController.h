@@ -18,10 +18,13 @@
     NSArray * paisArray;
     NSMutableArray*arrayImage;
     NSMutableArray*arrayShortName;
+    UINavigationController *refNavigationController;
+  
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
 @property (weak, nonatomic) IBOutlet UILabel *lbNome;
 - (IBAction)btSair:(id)sender;
+
 
 
 @end

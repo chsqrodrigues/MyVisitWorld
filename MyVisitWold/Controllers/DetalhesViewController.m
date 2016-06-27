@@ -13,7 +13,7 @@
 @end
 BOOL camposValidos;
 @implementation DetalhesViewController
-@synthesize pais, lbCodTel, lbLongname, lbShortname, imgBandeira, btCheck, txtData, scrollView, arrayPais, datePicker, viewData;
+@synthesize pais, lbCodTel, lbLongname, lbShortname, imgBandeira, txtData, scrollView, arrayPais, datePicker, viewData, switchOnOFF;
 
 
 - (void)viewDidLoad {
@@ -31,9 +31,7 @@ BOOL camposValidos;
     lbCodTel.text = [NSString stringWithFormat:@"Código Telefone: %@", pais.callingCode];
     txtData.text = pais.date;
     if([pais.visitado isEqualToString:@"true"]){
-        [btCheck setImage:[UIImage imageNamed:@"iconTrue.png"] forState:UIControlStateNormal];
-        [btCheck setSelected:YES];
-    }
+        [switchOnOFF setOn:YES];    }
     //Inicializa Scroll
     [self.scrollView setScrollEnabled:YES];
     self.scrollView.contentSize =CGSizeMake(0, 400);
@@ -44,21 +42,7 @@ BOOL camposValidos;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/**
- * Marca ou desmarca visita
- * @author Carlos (ch.sqrodrigues@gmail.com)
- */
-- (IBAction)btCheck:(id)sender {
-    if ([btCheck isSelected]== NO){
-        [btCheck setImage:[UIImage imageNamed:@"iconTrue.png"] forState:UIControlStateNormal];
-        [btCheck setSelected:YES];
-        
-    }
-    else {
-        [btCheck setImage:[UIImage imageNamed:@"iconFalse.png"] forState:UIControlStateNormal];        [btCheck setSelected:NO];
-        
-    }
-}
+
 /**
  * Salva visita e direciona para a tela que lista todos os países
  * @author Carlos (ch.sqrodrigues@gmail.com)
@@ -80,10 +64,7 @@ BOOL camposValidos;
                                                       otherButtonTitles:nil];
                 [alert show];
                 
-                MundoViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
-                
-                
-                [self presentViewController:detalhes animated:YES completion:nil];
+               [self.navigationController popToRootViewControllerAnimated:YES];
                 
                 break;
             }
@@ -109,7 +90,7 @@ BOOL camposValidos;
     NSMutableString *camposObrigatorios = [[NSMutableString alloc] initWithString:@""];
     BOOL camposValidos = YES;
     
-    if([btCheck isSelected]== NO ) {
+    if(![switchOnOFF isOn]) {
         [camposObrigatorios
          appendString:@"- Marque o país como visitado.\n"];
         camposValidos = NO;
@@ -146,4 +127,5 @@ BOOL camposValidos;
     
     
 }
+
 @end

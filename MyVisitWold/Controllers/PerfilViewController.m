@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    //seta imagem de fundo na tela
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
     
     NSArray *arrayPerfil = [[NSArray alloc]init];
     arrayPerfil =  [[ModeloPerfil modeloCompartilhado] itens];
@@ -43,4 +43,8 @@
 
 
 
+- (IBAction)btn:(id)sender {
+    
+    
+}
 @end

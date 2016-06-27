@@ -148,16 +148,22 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Pais *paisTab = [paisArray objectAtIndex:indexPath.row];
+        
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    DetalhesViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"DetalhesViewController"];
+  
+    NSIndexPath *indexPathImInterestedIn = [self.table indexPathForSelectedRow];
+    Pais *paisTab = [paisArray objectAtIndex:indexPathImInterestedIn.item];
     
-    detalhes.pais = paisTab;
-    detalhes.arrayPais = paisArray;
     
-    [self presentViewController:detalhes animated:YES completion:nil];
+    
+    DetalhesViewController *destViewController = segue.destinationViewController;
+    destViewController.pais = paisTab;
+    destViewController.arrayPais = paisArray;
     
 }
+
 /**
  * Exibe alerta de confirmação
  * @author Carlos (ch.sqrodrigues@gmail.com)
@@ -198,4 +204,5 @@
         [table reloadData];
     }
 }
+
 @end
