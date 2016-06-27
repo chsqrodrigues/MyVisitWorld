@@ -398,8 +398,8 @@
                                 <rect key="frame" x="110" y="158" width="100" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" id="Rcs-zd-PHv">
-                                <rect key="frame" x="-5" y="16" width="325" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" id="Rcs-zd-PHv">
+                                <rect key="frame" x="0.0" y="17" width="325" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Meu Perfil" id="5VJ-yq-fbk"/>

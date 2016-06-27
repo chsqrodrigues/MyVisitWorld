@@ -15,6 +15,25 @@
     // seta imagem de fundo
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
     
+    [self atualizaTable];
+       self.table.allowsMultipleSelectionDuringEditing = NO;
+    [table reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self atualizaTable];
+    [table reloadData];
+    // Reload your data here, and this gets called
+    // before the view transition is complete.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)atualizaTable{
     pais = [[NSArray alloc]init];
     paisArray = [[NSMutableArray alloc]init];
     pais =  [[ModeloPais modeloCompartilhado] itens];
@@ -25,16 +44,9 @@
             [paisArray addObject:elemento];
         }
     }
-    self.table.allowsMultipleSelectionDuringEditing = NO;
-    [table reloadData];
+
+
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [paisArray count];

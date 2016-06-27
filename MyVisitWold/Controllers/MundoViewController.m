@@ -162,7 +162,7 @@
 - (IBAction)btSair:(id)sender {
     ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     
-    [self presentViewController:login animated:YES completion:nil];
+    [self presentViewController:login animated:NO completion:nil];
     
 }
 @end
