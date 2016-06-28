@@ -25,6 +25,7 @@
 		475496411D21A6E900B5E450 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 475496401D21A6E900B5E450 /* bg.jpg */; };
 		475496481D21AF0D00B5E450 /* check_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 475496461D21AF0D00B5E450 /* check_box.png */; };
 		475496491D21AF0D00B5E450 /* ico_cxcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 475496471D21AF0D00B5E450 /* ico_cxcheck.png */; };
+		4754964B1D21C98800B5E450 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 4754964A1D21C98800B5E450 /* fb.png */; };
 		477F90E51D14262000E30DF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 477F90E11D14262000E30DF6 /* Default-568h@2x.png */; };
 		477F90E61D14262000E30DF6 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 477F90E21D14262000E30DF6 /* Default-667h@2x.png */; };
 		477F90E71D14262000E30DF6 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 477F90E31D14262000E30DF6 /* Default-736h@3x.png */; };
@@ -95,6 +96,7 @@
 		475496401D21A6E900B5E450 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bg.jpg; path = Imagens/bg.jpg; sourceTree = "<group>"; };
 		475496461D21AF0D00B5E450 /* check_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check_box.png; path = Imagens/check_box.png; sourceTree = "<group>"; };
 		475496471D21AF0D00B5E450 /* ico_cxcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_cxcheck.png; path = Imagens/ico_cxcheck.png; sourceTree = "<group>"; };
+		4754964A1D21C98800B5E450 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = Imagens/fb.png; sourceTree = "<group>"; };
 		477F90E11D14262000E30DF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "splash/Default-568h@2x.png"; sourceTree = "<group>"; };
 		477F90E21D14262000E30DF6 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-667h@2x.png"; path = "splash/Default-667h@2x.png"; sourceTree = "<group>"; };
 		477F90E31D14262000E30DF6 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-736h@3x.png"; path = "splash/Default-736h@3x.png"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				475496401D21A6E900B5E450 /* bg.jpg */,
 				47DAF2E41D12028C006B81FE /* perfil.png */,
 				477F90E91D142BE400E30DF6 /* icone.png */,
+				4754964A1D21C98800B5E450 /* fb.png */,
 				475496461D21AF0D00B5E450 /* check_box.png */,
 				475496471D21AF0D00B5E450 /* ico_cxcheck.png */,
 				471CB0B41D133BB500BCD221 /* check.png */,
@@ -436,6 +439,7 @@
 				47DAF2C61D11E81F006B81FE /* Apple-logo3.png in Resources */,
 				477F90E81D14262000E30DF6 /* Default-Portrait@2x.png in Resources */,
 				47DAF2E51D12028C006B81FE /* perfil.png in Resources */,
+				4754964B1D21C98800B5E450 /* fb.png in Resources */,
 				471CB0B51D133BB500BCD221 /* check.png in Resources */,
 				477F90EA1D142BE400E30DF6 /* icone.png in Resources */,
 				477F90E71D14262000E30DF6 /* Default-736h@3x.png in Resources */,

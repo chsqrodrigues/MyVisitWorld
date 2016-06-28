@@ -163,6 +163,17 @@
     ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     
     [self presentViewController:login animated:NO completion:nil];
+   
+    [[ModeloPerfil modeloCompartilhado] excluirTodosOsItens];
+    
+    NSArray *array = [[NSArray alloc]init];
+    array =  [[ModeloPais modeloCompartilhado] itens];
+    for(Pais *elemento in array){
+        elemento.visitado = nil;
+        elemento.selected = nil;
+        elemento.date = nil;
+        
+    }
     
 }
 @end

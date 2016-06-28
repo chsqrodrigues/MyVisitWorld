@@ -19,14 +19,7 @@
     viewNew.tag  = 1;
     
     viewNew.frame =CGRectMake(round((view.frame.size.width - 120) / 2), round((view.frame.size.height - 120) / 2), 120, 120);
-    
-    UIImage * image  = [UIImage imageNamed:@"background.png"];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-    imageView.frame = CGRectMake(round((viewNew.frame.size.width - 120) / 2), round((viewNew.frame.size.height - 120) / 2), 120, 120);
-    
-    [viewNew addSubview:imageView];
+
     
     UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray] ;
     av.frame = CGRectMake(round((viewNew.frame.size.width - 25) / 2), round((viewNew.frame.size.height - 25) / 2), 25, 25);

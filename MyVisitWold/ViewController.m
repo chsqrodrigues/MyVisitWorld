@@ -19,9 +19,18 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
     
+   }
+
+-(void)viewDidLayoutSubviews{
+    NSArray *arrayPerfil = [[NSArray alloc]init];
+    arrayPerfil =  [[ModeloPerfil modeloCompartilhado] itens];
+    //Seta infomações(nome e email) do Facebook
+    if([arrayPerfil count]>0){
+        MundoViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
+        [self presentViewController:detalhes animated:NO completion:nil];
+        
+    }
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -100,7 +109,7 @@
                 //Se sucesso
                 [self cadastroFacebook];
                 MundoViewController *detalhes = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
-                [self presentViewController:detalhes animated:YES completion:nil];
+                [self presentViewController:detalhes animated:NO completion:nil];
                 [Funcionalidades stopProgressBar:self.view];
             }
             [Funcionalidades stopProgressBar:self.view];
